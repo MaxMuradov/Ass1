@@ -5,25 +5,34 @@ import biuoop.DrawSurface;
 import java.util.Random;
 import java.awt.Color;
 
+/**
+ * Class "main".
+ */
 public class SimpleGuiExample {
 
+    // Globals values
     public static final int MAX_LINES = 10;
     public static final int MAX_W = 900;
     public static final int MAX_H = 600;
     public static final int RAD = 3;
+
+    /**
+     * array of lines.
+     */
     private Line[] myLines = new Line[MAX_LINES];
 
 
+    /**
+     * main method that includes usage of GUI and checks.
+     */
     public void drawRandomCircles() {
-        Random rand = new Random(); // create a random-number generator
-        // Create a window with the title "Random Circles Example"
-        // which is 400 pixels wide and 300 pixels high.
+        Random rand = new Random();
         GUI gui = new GUI("Random Circles Example", MAX_W, MAX_H);
         DrawSurface d = gui.getDrawSurface();
 
         //EDGE CASES, parallel to y & visualy same line
 
-        d.setColor(Color.BLACK);
+   /*     d.setColor(Color.BLACK);
         Line l1 = new Line(100,100,200,100);
         d.drawLine(100,100,200,100);
 
@@ -49,7 +58,7 @@ public class SimpleGuiExample {
         if (intersect2 != null) {
             d.setColor(Color.RED);
             d.fillCircle((int) intersect2.getX(), (int) intersect2.getY(), 3);
-        }
+        }*/
 
       /*d.setColor(Color.BLACK);
         Line l1 = new Line(100,100,300,300);
@@ -68,7 +77,7 @@ public class SimpleGuiExample {
             d.fillCircle((int) intersect.getX(), (int) intersect.getY(), 3);
         }*/
 
-       /* for (int i = 0; i < MAX_LINES; ++i) {
+       for (int i = 0; i < MAX_LINES; ++i) {
 
             int x1 = rand.nextInt(MAX_W) + 1; // get integer in range 1-800
             int x2 = rand.nextInt(MAX_W) + 1; // get integer in range 1-800
@@ -107,14 +116,15 @@ public class SimpleGuiExample {
                     d.fillCircle((int) cross.getX(), (int) cross.getY(), RAD);
                 }
             }
-
-
-
         }
-        */gui.show(d);
+        gui.show(d);
     }
 
-    public static void main(final String[] args) {
+    /**
+     * Main Main.
+     * @param args args
+     */
+    public static void main(String[] args) {
         SimpleGuiExample example = new SimpleGuiExample();
         example.drawRandomCircles();
     }
